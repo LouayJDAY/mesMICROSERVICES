@@ -1,0 +1,7 @@
+com/nadhem/groupe/dto/GroupeDto.class
+com/nadhem/groupe/entities/Groupe.class
+com/nadhem/groupe/service/GroupeService.class
+com/nadhem/groupe/restControllers/GroupeController.class
+com/nadhem/groupe/GroupeMicroserviceApplication.class
+com/nadhem/groupe/repos/GroupeRepository.class
+com/nadhem/groupe/service/GroupeServiceImpl.class

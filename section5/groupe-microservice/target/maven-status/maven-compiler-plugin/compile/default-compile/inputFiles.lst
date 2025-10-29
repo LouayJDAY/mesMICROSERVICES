@@ -1,0 +1,8 @@
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/dto/GroupeDto.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/GroupeMicroserviceApplication.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/repos/GroupeRepository.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/service/GroupeService.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/restControllers/GroupeController.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/entities/Groupe.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/service/GroupeServiceImpl.java
+/home/louay/Desktop/louay/les microservices/section5/groupe-microservice/src/main/java/com/nadhem/groupe/config/Configuration.java

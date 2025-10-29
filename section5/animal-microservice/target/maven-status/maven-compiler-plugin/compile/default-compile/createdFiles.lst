@@ -1,0 +1,10 @@
+com/nadhem/animal/AnimalMicroserviceApplication.class
+com/nadhem/animal/service/AnimalService.class
+com/nadhem/animal/service/AnimalServiceImpl.class
+com/nadhem/animal/dto/GroupeDto.class
+com/nadhem/animal/entities/Animal.class
+com/nadhem/animal/repos/AnimalRepository.class
+com/nadhem/animal/restControllers/AnimalController.class
+com/nadhem/animal/dto/AnimalDto.class
+com/nadhem/animal/dto/APIResponseDto.class
+com/nadhem/animal/service/APIClient.class
