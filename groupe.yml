@@ -1,8 +1,8 @@
 build:
-  version: 2.0
+  version: 3.0
 author:
-  name: louay-updated
-  email: louay.updated@example.com
+  name: louay-webhook-test
+  email: louay.webhook@example.com
 
 management:
   endpoints:
