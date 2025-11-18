@@ -1,8 +1,8 @@
 build:
-  version: 1.0
+  version: 2.0
 author:
-  name: louay
-  email: louay@example.com
+  name: louay-updated
+  email: louay.updated@example.com
 
 management:
   endpoints:
