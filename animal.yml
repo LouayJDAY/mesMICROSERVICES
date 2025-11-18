@@ -1,8 +1,8 @@
 build:
   version: 1.0
 author:
-  name: updated louay
-  email: louay@example.com
+  name: REFRESH_TEST_V1
+  email: refresh@test.com
 
 management:
   endpoints:
