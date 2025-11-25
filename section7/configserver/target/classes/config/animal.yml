@@ -1,0 +1,11 @@
+build:
+  version: 3.0
+author:
+  name: louay-webhook-test
+  email: louay.webhook@example.com
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

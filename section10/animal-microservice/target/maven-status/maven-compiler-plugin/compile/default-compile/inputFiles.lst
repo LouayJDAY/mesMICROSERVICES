@@ -1,0 +1,16 @@
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/service/GroupeFallback.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/config/FeignRequestInterceptor.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/entities/Animal.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/restControllers/ConfigController.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/service/AnimalServiceImpl.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/config/AppConfig.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/config/GroupeFallbackFactory.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/repos/AnimalRepository.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/dto/APIResponseDto.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/service/AnimalService.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/AnimalMicroserviceApplication.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/service/APIClient.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/dto/AnimalDto.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/config/FeignErrorDecoder.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/dto/GroupeDto.java
+/home/louay/Desktop/louay/les microservices/section10/animal-microservice/src/main/java/com/nadhem/animal/restControllers/AnimalController.java

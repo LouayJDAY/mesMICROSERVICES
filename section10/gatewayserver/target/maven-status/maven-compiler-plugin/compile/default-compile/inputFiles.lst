@@ -1,0 +1,5 @@
+/home/louay/Desktop/louay/les microservices/section10/gatewayserver/src/main/java/com/nadhem/gateway/config/MyRouteConfig.java
+/home/louay/Desktop/louay/les microservices/section10/gatewayserver/src/main/java/com/nadhem/gateway/security/SecurityConfig.java
+/home/louay/Desktop/louay/les microservices/section10/gatewayserver/src/main/java/com/nadhem/gateway/security/KeycloakRoleConverter.java
+/home/louay/Desktop/louay/les microservices/section10/gatewayserver/src/main/java/com/nadhem/gateway/controller/FallbackController.java
+/home/louay/Desktop/louay/les microservices/section10/gatewayserver/src/main/java/com/nadhem/gateway/GatewayServerApplication.java

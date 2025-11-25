@@ -1,0 +1,5 @@
+com/nadhem/gateway/security/SecurityConfig.class
+com/nadhem/gateway/security/KeycloakRoleConverter.class
+com/nadhem/gateway/controller/FallbackController.class
+com/nadhem/gateway/GatewayServerApplication.class
+com/nadhem/gateway/config/MyRouteConfig.class

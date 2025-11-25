@@ -1,0 +1,10 @@
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/service/AnimalServiceImpl.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/entities/Animal.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/service/AnimalService.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/dto/APIResponseDto.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/AnimalMicroserviceApplication.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/dto/AnimalDto.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/service/APIClient.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/repos/AnimalRepository.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/restControllers/AnimalController.java
+/home/louay/Desktop/louay/les microservices/section7/animal-microservice/src/main/java/com/nadhem/animal/dto/GroupeDto.java

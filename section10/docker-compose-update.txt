@@ -1,0 +1,15 @@
+Ajouter après le bloc groupe-ms (avant les commentaires) :
+
+  groupe-ms2:
+    build: ./groupe-microservice
+    container_name: groupe-ms2
+    ports:
+      - "8083:8081"
+    environment:
+      - DISCOVERY_SERVICE_URL=http://eurekaserver:8761/eureka
+      - CONFIG_SERVICE_URL=http://configserver:9999
+    depends_on:
+      eurekaserver:
+        condition: service_started
+      configserver:
+        condition: service_started

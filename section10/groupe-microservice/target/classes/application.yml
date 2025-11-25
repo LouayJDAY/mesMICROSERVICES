@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: groupe
+  config:
+    import: optional:configserver:${CONFIG_SERVICE_URL:http://localhost:9999}
+  datasource:
+    # Use environment variables to switch between H2 and MySQL. Defaults to H2 in-memory for local dev
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:grpdb}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: ${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+  cloud:
+    config:
+      enabled: true
+    discovery:
+      enabled: true
+
+author:
+  name: "LOUAY"
+  email: "LOUAYJDAY09@GMAIL.COM"
+
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 8081
+
+build:
+  version: "1.0.0"
+

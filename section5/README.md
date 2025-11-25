@@ -113,6 +113,23 @@ L'ordre de démarrage est important pour éviter les erreurs de dépendances :
    mvn spring-boot:run
    ```
 
+### Démarrage Automatique
+
+Pour démarrer tout le système automatiquement, utilisez les scripts fournis :
+
+```bash
+# Construire tous les services
+mvn clean package -DskipTests
+
+# Démarrer tous les services
+./start-system.sh
+
+# Arrêter tous les services
+./stop-system.sh
+```
+
+**Note** : Le pom.xml parent à la racine permet de construire tous les microservices en une seule commande.
+
 ## Vérification du Fonctionnement
 
 - **Eureka Dashboard** : `http://localhost:8761`

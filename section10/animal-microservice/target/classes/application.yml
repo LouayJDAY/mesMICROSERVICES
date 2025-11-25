@@ -1,0 +1,78 @@
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+
+resilience4j.timelimiter:
+  configs:
+    default:
+      cancelRunningFuture: false
+      timeoutDuration: 5s
+  instances:
+    GROUPE:
+      baseConfig: default
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: animal1
+  config:
+    import: optional:configserver:${CONFIG_SERVICE_URL:http://localhost:9999}
+  datasource:
+    url: "jdbc:h2:mem:animaldb"
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cloud:
+    config:
+      enabled: true
+    discovery:
+      enabled: true
+    openfeign:
+      circuitbreaker:
+        enabled: true
+      client:
+        config:
+          GROUPE:
+            connectTimeout: 3000
+            readTimeout: 3000
+
+app:
+  name: "Animal Microservice v1"
+  version: "1.0.0"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    '[org.springframework.cloud.openfeign]': DEBUG
+    '[com.LOUAY.animal.service]': DEBUG
+    '[com.LOUAY.animal.config]': DEBUG
+

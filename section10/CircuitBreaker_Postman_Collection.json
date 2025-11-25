@@ -1,0 +1,280 @@
+{
+  "info": {
+    "name": "Circuit Breaker Resilience4J - Tests",
+    "description": "Collection Postman pour tester le Circuit Breaker Resilience4J implémenté dans les microservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Test Normal - Service Disponible",
+      "item": [
+        {
+          "name": "GET Animal avec Groupe (Normal)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Test normal : Récupère un animal avec son groupe enrichi. Devrait retourner nomGroupe: 'Félin'"
+          },
+          "response": []
+        },
+        {
+          "name": "GET via Gateway (Normal)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8888",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Test via Gateway : Devrait retourner la même réponse avec circuit breaker CLOSED"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Test Circuit Breaker - Service Indisponible",
+      "item": [
+        {
+          "name": "// STOP Groupe Service (Préparation) - COMMENTÉ",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/actuator/shutdown",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["actuator", "shutdown"]
+            },
+            "description": "// COMMENTÉ - Utiliser plutôt : docker compose stop groupe-ms"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Animal avec Circuit Breaker (Fallback)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Test circuit breaker : Devrait retourner nomGroupe: 'NOT AVAILABLE' (fallback activé)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET via Gateway avec Circuit Breaker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8888",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Test via Gateway : Devrait retourner fallback de la gateway (503 Service Unavailable)"
+          },
+          "response": []
+        },
+        {
+          "name": "Test Rapide Successif (Déclencher Circuit OPEN)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Répéter plusieurs fois rapidement pour déclencher le circuit breaker OPEN (failureRateThreshold: 50%)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Test Récupération - Service Redémarré",
+      "item": [
+        {
+          "name": "// START Groupe Service (Récupération) - COMMENTÉ",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/actuator/shutdown",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["actuator", "shutdown"]
+            },
+            "description": "// COMMENTÉ - Utiliser plutôt : docker compose start groupe-ms"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Animal après Récupération",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/animals/id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "animals", "id", "1"]
+            },
+            "description": "Test récupération : Circuit devrait passer de OPEN à HALF_OPEN puis CLOSED, retourner nomGroupe: 'Félin'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Monitoring Circuit Breaker",
+      "item": [
+        {
+          "name": "État du Circuit Breaker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/actuator/circuitbreakers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["actuator", "circuitbreakers"]
+            },
+            "description": "Vérifie l'état actuel du circuit breaker (CLOSED, OPEN, HALF_OPEN)"
+          },
+          "response": []
+        },
+        {
+          "name": "Événements Circuit Breaker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/actuator/circuitbreakerevents",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["actuator", "circuitbreakerevents"]
+            },
+            "description": "Consulte l'historique des événements du circuit breaker"
+          },
+          "response": []
+        },
+        {
+          "name": "Métriques Circuit Breaker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/actuator/metrics/resilience4j.circuitbreaker.calls",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["actuator", "metrics", "resilience4j.circuitbreaker.calls"]
+            },
+            "description": "Consulte les métriques du circuit breaker"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Tests Divers",
+      "item": [
+        {
+          "name": "Health Check Services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8761/actuator/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8761",
+              "path": ["actuator", "health"]
+            },
+            "description": "Vérifie la santé d'Eureka (DOWN à cause de RabbitMQ mais fonctionne)"
+          },
+          "response": []
+        },
+        {
+          "name": "Eureka - Services Enregistrés",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8761/eureka/apps",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8761",
+              "path": ["eureka", "apps"]
+            },
+            "description": "Liste tous les services enregistrés dans Eureka"
+          },
+          "response": []
+        },
+        {
+          "name": "Test Groupe Direct",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/groupes/Félin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "groupes", "Félin"]
+            },
+            "description": "Test direct du service Groupe"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url_animal",
+      "value": "http://localhost:8082",
+      "type": "string"
+    },
+    {
+      "key": "base_url_gateway",
+      "value": "http://localhost:8888",
+      "type": "string"
+    },
+    {
+      "key": "base_url_groupe",
+      "value": "http://localhost:8081",
+      "type": "string"
+    },
+    {
+      "key": "base_url_eureka",
+      "value": "http://localhost:8761",
+      "type": "string"
+    }
+  ]
+}
