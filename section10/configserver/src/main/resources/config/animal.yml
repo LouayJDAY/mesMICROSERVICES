@@ -1,11 +1,3 @@
-build:
-  version: 1.0
 author:
-  name: louay
-  email: louay@example.com
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+  name: "Louay JDAY - Animal Service"
+  email: "louay@animal.com"
